@@ -1,0 +1,46 @@
+@import '../../main-styles.scss';
+
+.list {
+	display: flex;
+	padding: 32px;
+
+	justify-content: center;
+	align-items: center;
+
+	.container {
+		display: flex;
+		max-width: 512px;
+		height: 100%; width: 100%;
+	}
+
+	.income, .expenses {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 0;
+		flex-grow: 1;
+
+		h1 {
+			font-family: 'Lato';
+			font-size: 32px;
+			font-weight: 900;
+			tetx-transform: uppercase;
+		}
+	}
+
+	.income {
+		margin-right: 32px;
+
+		h1 {
+			color: $green;
+		}
+	}
+
+	.expenses {
+
+		h1 {
+			color: $red;
+		}
+
+	}
+
+}

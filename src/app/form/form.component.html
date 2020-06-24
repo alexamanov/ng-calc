@@ -1,0 +1,53 @@
+<p style="margin-bottom: 16px;">Для ввода суммы расхода используйте знак минус "-"</p>
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+	<div class="field is-horizontal">
+		<div class="field-body">
+
+			<div class="field is-narrow">
+				<div class="control">
+					<input 
+						type="number" 
+						class="input" 
+						oninput="javascript: 
+							if (this.value.length > this.maxLength)
+								this.value = this.value.slice(0, this.maxLength);
+						"
+						maxlength = "8"
+						style="width: 128px;" 
+						placeholder="Сумма"
+						name="amount" 
+						min="-10" max="10"
+						[ngModel]="item.amount"
+						required 
+					/>
+				</div>
+			</div>
+
+			<div class="field is-narrow">
+				<div class="control">
+					<input 
+						type="text" 
+						class="input" 
+						style="width: 512px;" 
+						placeholder="Описание"
+						name="description" 
+						maxlength="32"
+						[ngModel]="item.description"
+						required 
+					/>
+				</div>
+			</div>
+
+			<div class="field">
+				<button 
+					type="submit" 
+					[disabled]="!itemForm.valid"
+					[ngClass]="{ 'is-primary': !isNew, 'is-success': isNew }"
+					class="button">
+					<p *ngIf="isNew">Добавить</p>
+					<p *ngIf="!isNew">Сохранить</p>
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
